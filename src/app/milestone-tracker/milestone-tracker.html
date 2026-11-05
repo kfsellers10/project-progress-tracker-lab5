@@ -1,0 +1,51 @@
+<h2>Milestone Tracker</h2>
+
+<form [formGroup]="milestoneForm">
+
+    <div>
+        <label for="milestone-name">Milestone Name:</label>
+        <input
+            id="milestone-name"
+            type="text"
+            formControlName="milestoneName">
+    </div>
+
+    <div>
+        <label for="due-date">Due Date:</label>
+        <input
+            id="due-date"
+            type="date"
+            formControlName="dueDate">
+    </div>
+
+    <div>
+        <label for="status">Status:</label>
+        <input
+            id="status"
+            type="text"
+            formControlName="status">
+    </div>
+
+    <div formGroupName="details">
+
+        <h3>Responsibility Details</h3>
+
+        <div>
+            <label for="owner">Owner:</label>
+            <input
+                id="owner"
+                type="text"
+                formControlName="owner">
+        </div>
+
+        <div>
+            <label for="notes">Notes:</label>
+            <input
+                id="notes"
+                type="text"
+                formControlName="notes">
+        </div>
+
+    </div>
+
+</form>

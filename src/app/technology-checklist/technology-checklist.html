@@ -1,0 +1,10 @@
+<h2>Technology Checklist</h2>
+
+<button
+    [disabled]="checklistComplete"
+    [innerText]="buttonName"
+    (click)="completeChecklist()"
+    (mouseover)="showMessage()">
+</button>
+
+<p>{{ hoverMessage }}</p>

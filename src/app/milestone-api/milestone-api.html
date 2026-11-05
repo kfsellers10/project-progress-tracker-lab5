@@ -1,0 +1,59 @@
+<h2>Project Milestones - Server Data</h2>
+
+<p>
+  These milestones are retrieved from our
+  Node.js/Express.js server.
+</p>
+
+<!-- Display records after they arrive. -->
+@if (milestones$ | async; as milestones) {
+
+  <ul>
+    @for (milestone of milestones; track milestone.id) {
+      <li>
+        {{ milestone.id }} -
+        {{ milestone.name }} -
+        {{ milestone.status }}
+      </li>
+    }
+  </ul>
+
+} @else {
+  <p>Loading milestones...</p>
+}
+
+<hr>
+
+<h2>Submit a New Milestone</h2>
+
+<!-- Connect the HTML form to the reactive form. -->
+<form [formGroup]="milestoneForm" (ngSubmit)="onSubmit()">
+
+  <!-- Milestone name input -->
+  <mat-form-field appearance="outline">
+    <mat-label>Milestone Name</mat-label>
+    <input matInput formControlName="name">
+  </mat-form-field>
+
+  <!-- Milestone status dropdown -->
+  <mat-form-field appearance="outline">
+    <mat-label>Status</mat-label>
+
+    <mat-select formControlName="status">
+      <mat-option value="Not Started">Not Started</mat-option>
+      <mat-option value="In Progress">In Progress</mat-option>
+      <mat-option value="Completed">Completed</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <!-- Submit the milestone -->
+  <button mat-raised-button type="submit">
+    Submit Milestone
+  </button>
+
+</form>
+
+<!-- Show the response from Express. -->
+@if (message) {
+  <p>{{ message }}</p>
+}

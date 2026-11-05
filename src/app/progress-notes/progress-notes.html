@@ -1,0 +1,64 @@
+<h2>Progress Notes</h2>
+
+<form [formGroup]="progressForm">
+
+    <div>
+        <label for="project-code">Project Code:</label>
+        <input
+            id="project-code"
+            type="text"
+            formControlName="projectCode"
+            (blur)="onProjectCodeChange()">
+    </div>
+
+    
+
+    @if (projectCodeMessage) {
+        <p>{{ projectCodeMessage }}</p>
+    } 
+
+    <div>
+        <label for="project-name">Project Name:</label>
+        <input
+            id="project-name"
+            type="text"
+            formControlName="projectName">
+    </div>
+
+    <div>
+        <label for="date">Date:</label>
+        <input
+            id="date"
+            type="date"
+            formControlName="date">
+    </div>
+
+    <div>
+        <label for="current-status">Current Status:</label>
+        <select
+            id="current-status"
+            formControlName="currentStatus">
+            <option value="">-- Select --</option>
+            <option value="On Track">On Track</option>
+            <option value="Needs Attention">Needs Attention</option>
+            <option value="Completed">Completed</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="team-member">Team Member:</label>
+        <input
+            id="team-member"
+            type="text"
+            formControlName="teamMember">
+    </div>
+
+    <div>
+        <label for="progress-note">Progress Note:</label>
+        <textarea
+            id="progress-note"
+            rows="4"
+            formControlName="progressNote"></textarea>
+    </div>
+
+</form>
